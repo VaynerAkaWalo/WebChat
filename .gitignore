@@ -1,0 +1,7 @@
+﻿/.idea/
+/src/bin/
+/src/obj/
+
+*.exe
+*.dll
+*.pdb
