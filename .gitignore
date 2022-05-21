@@ -1,7 +1,9 @@
 ﻿/.idea/
 bin/**
 obj/**
+/obj/
 
 *.exe
 *.dll
 *.pdb
+
