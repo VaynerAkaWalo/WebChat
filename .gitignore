@@ -1,6 +1,6 @@
 ﻿/.idea/
-/bin/
-/obj/
+/src/bin/
+/src/obj/
 
 *.exe
 *.dll
