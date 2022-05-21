@@ -1,8 +1,26 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
+    string[] messages =
+    {
+        "jksadhkjasdhkashldasdkjhajskdlas",
+        "easdkas;dlksad;askd;alsdkas;dka",
+        "esafdafdafdsafdasfasdfsadfsaf"
+    };
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="index-body">
+    <div class="messages-div">
+        <ul>
+            @foreach (var message in messages)
+            {
+                <li class="message-li">@message</li>
+            }
+        </ul>
+    </div>
+    <div class="send-message-div">
+        <input class="message-input-box" type="text">
+        <button class="send-message-button">Wyślij wiadomość</button>
+    </div>
+    
 </div>

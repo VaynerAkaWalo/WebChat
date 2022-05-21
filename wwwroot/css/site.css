@@ -16,3 +16,43 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.index-body {
+  margin-top: 30px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  height: 70vh;
+}
+
+.messages-div {
+  margin-top: 10px;
+  flex-grow: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-li {
+  list-style-type: none;
+  word-wrap: break-word;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 2px;
+}
+
+.send-message-div > * {
+  margin: 10px;
+}
+
+.send-message-div{
+  background-color: #ced4da;
+  display: flex;
+  justify-content: center;
+}
+
+.message-input-box {
+  width: 70%;
+  height: 50px;
+}
