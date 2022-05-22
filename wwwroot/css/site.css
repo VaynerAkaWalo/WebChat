@@ -17,6 +17,11 @@ body {
   margin-bottom: 60px;
 }
 
+#nickname-dialog {
+  top: 30%;
+  position: absolute;
+}
+
 .index-body {
   margin-top: 30px;
   background-color: whitesmoke;
@@ -52,7 +57,7 @@ body {
   justify-content: center;
 }
 
-.message-input-box {
+#message-input-box {
   width: 70%;
   height: 50px;
 }
