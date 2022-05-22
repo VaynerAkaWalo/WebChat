@@ -60,6 +60,7 @@ document.getElementById("nickname-button").addEventListener("click", function (e
                 document.getElementById("send-message-button").disabled = false;
                 document.getElementById("nickname-dialog").style.visibility = "hidden";
                 document.getElementById("overlay").style.display = "none";
+                document.getElementById("message-input-box").focus();
             }
         }
     }
@@ -76,6 +77,7 @@ document.getElementById("guest-button").addEventListener("click", function (even
                 document.getElementById("send-message-button").disabled = false;
                 document.getElementById("nickname-dialog").style.visibility = "hidden";
                 document.getElementById("overlay").style.display = "none";
+                document.getElementById("message-input-box").focus();
             }
         }
     }
