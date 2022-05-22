@@ -1,13 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Random random = new Random();
+    var nick = "guest_" + random.Next(1000, 9999);
 }
-
 
 <div class="index-body">
     <dialog id="nickname-dialog" open>
         <p>Type your nickname</p>
         <input type="text" name="nickname" id="nickname-input">
         <button id="nickname-button">Confirm</button>
+        <button id="guest-button" data="@nick">Continue as @nick</button>
     </dialog>
 
     <div class="messages-div">
