@@ -1,10 +1,12 @@
 using WebChat.Hubs;
+using WebChat.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
+builder.Services.AddSingleton<IMessageStorage, ArrayBasedStorage>();
 
 var app = builder.Build();
 
