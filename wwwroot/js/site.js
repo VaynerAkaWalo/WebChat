@@ -81,6 +81,20 @@ document.getElementById("guest-button").addEventListener("click", function (even
     }
 })
 
+try {
+    document.getElementById("nickname-input").addEventListener("keypress", function (event)
+    {
+        if(event.key === "Enter")
+        {
+            event.preventDefault();
+            document.getElementById("nickname-button").click();
+        }
+    })
+}
+catch (e)
+{
+    console.log(e);
+}
 
 try {
     document.getElementById("message-input-box").addEventListener("keypress", function (event)
