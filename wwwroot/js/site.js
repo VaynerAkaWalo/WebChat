@@ -11,16 +11,32 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
 document.getElementById("send-message-button").disabled = true;
 
-connection.on("ReceiveMessage", function (user, message, date) {
+connection.on("ReceiveMessage", function (response) {
     var li = document.createElement("li");
     li.classList.add("message-li");
     document.getElementById("message-list").appendChild(li);
-    var time = new Date(date);
-    li.textContent = `${time.getHours()}:${time.getMinutes()} ${user}: ${message}`;
+    let json = JSON.parse(response);
+    let time = new Date(json.Date);
+    li.textContent = `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${json.Username}: ${json.Text}`;
+});
+
+connection.on("LoadMessages", function (response) {
+    let messages = JSON.parse(response);
+    for(const message of messages)
+    {
+        var li = document.createElement("li");
+        li.classList.add("message-li");
+        document.getElementById("message-list").appendChild(li);
+        let time = new Date(message.Date);
+        li.textContent = `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${message.Username}: ${message.Text}`;
+    }
 });
 
 connection.start().then(function () {
     connected = true;
+    connection.invoke("Connected").catch(function (err) {
+        return console.error(err.toString());
+    })
 }).catch(function (err) {
     return console.error(err.toString());
 })
