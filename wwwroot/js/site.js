@@ -63,3 +63,19 @@ document.getElementById("nickname-button").addEventListener("click", function (e
         }
     }
 })
+
+
+try {
+    document.getElementById("message-input-box").addEventListener("keypress", function (event)
+    {
+        if(event.key === "Enter")
+        {
+            event.preventDefault();
+            document.getElementById("send-message-button").click();
+        }
+    })
+}
+catch (e)
+{
+    console.log(e);
+}
