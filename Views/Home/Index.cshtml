@@ -1,26 +1,23 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-
-    string[] messages =
-    {
-        "jksadhkjasdhkashldasdkjhajskdlas",
-        "easdkas;dlksad;askd;alsdkas;dka",
-        "esafdafdafdsafdasfasdfsadfsaf"
-    };
 }
 
+
 <div class="index-body">
+    <dialog id="nickname-dialog" open>
+        <p>Type your nickname</p>
+        <input type="text" name="nickname" id="nickname-input">
+        <button id="nickname-button">Confirm</button>
+    </dialog>
+
     <div class="messages-div">
-        <ul>
-            @foreach (var message in messages)
-            {
-                <li class="message-li">@message</li>
-            }
+        <ul id="message-list">
+
         </ul>
     </div>
     <div class="send-message-div">
-        <input class="message-input-box" type="text">
-        <button class="send-message-button">Wyślij wiadomość</button>
+        <input id="message-input-box" type="text">
+        <button id="send-message-button">Wyślij wiadomość</button>
     </div>
-    
+
 </div>
