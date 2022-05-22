@@ -11,12 +11,12 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
 document.getElementById("send-message-button").disabled = true;
 
-connection.on("ReceiveMessage", function (user, message) {
+connection.on("ReceiveMessage", function (user, message, date) {
     var li = document.createElement("li");
     li.classList.add("message-li");
     document.getElementById("message-list").appendChild(li);
-    var time = new Date();
-    li.textContent = `${time.getHours()}:${time.getMinutes()} ${user} says ${message}`;
+    var time = new Date(date);
+    li.textContent = `${time.getHours()}:${time.getMinutes()} ${user}: ${message}`;
 });
 
 connection.start().then(function () {
