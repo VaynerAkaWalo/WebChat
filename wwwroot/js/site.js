@@ -59,6 +59,23 @@ document.getElementById("nickname-button").addEventListener("click", function (e
             {
                 document.getElementById("send-message-button").disabled = false;
                 document.getElementById("nickname-dialog").style.visibility = "hidden";
+                document.getElementById("overlay").style.display = "none";
+            }
+        }
+    }
+})
+
+document.getElementById("guest-button").addEventListener("click", function (event) {
+    if(connected)
+    {
+        nickname = document.getElementById("guest-button").getAttribute("data");
+        if(typeof nickname === "string")
+        {
+            if(nickname !== "")
+            {
+                document.getElementById("send-message-button").disabled = false;
+                document.getElementById("nickname-dialog").style.visibility = "hidden";
+                document.getElementById("overlay").style.display = "none";
             }
         }
     }
