@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
-builder.Services.AddSingleton<IMessageStorage, ArrayBasedStorage>();
+builder.Services.AddSingleton<IMessageStorage, QueueBasedStorage>();
 
 var app = builder.Build();
 
