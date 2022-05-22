@@ -34,9 +34,10 @@ body {
 .messages-div {
   margin-top: 10px;
   flex-grow: 1;
-  overflow: auto;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
+  justify-items: flex-start;
 }
 
 .message-li {
