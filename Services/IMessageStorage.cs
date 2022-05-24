@@ -1,4 +1,6 @@
-﻿namespace WebChat.Models;
+﻿using WebChat.Models;
+
+namespace WebChat.Services;
 
 public interface IMessageStorage
 {
