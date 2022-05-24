@@ -1,4 +1,5 @@
-﻿namespace WebChat.Models;
+﻿using WebChat.Models;
+namespace WebChat.Services;
 
 public class QueueBasedStorage : IMessageStorage
 {
