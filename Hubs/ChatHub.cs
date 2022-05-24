@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using Microsoft.AspNetCore.SignalR;
 using WebChat.Models;
+using WebChat.Services;
 
 namespace WebChat.Hubs;
 
@@ -13,9 +14,9 @@ public class ChatHub : Hub
         _database = database;
     }
     
-    public async Task SendMessage(string user, string message)
+    public async Task SendMessage(string username, string text)
     {
-        var newMessage = new Message(user, message);
+        var newMessage = new Message(username, text);
         _database.NewMessage(newMessage);
         string json = JsonSerializer.Serialize(newMessage);
         await Clients.All.SendAsync("ReceiveMessage", json);
