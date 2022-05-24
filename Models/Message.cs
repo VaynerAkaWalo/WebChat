@@ -1,12 +1,15 @@
-﻿namespace WebChat.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace WebChat.Models;
+
+[Table("messages")]
 public class Message
 {
-    public string Username { get; }
-    public string Text { get; }
+    public int ID { get; set; }
+    public string Username { get; set; }
+    public string Text { get; set; }
+    public DateTime Date { get; set; }
     
-    public DateTime Date { get; }
-
     public Message(string username, string text)
     {
         Date = DateTime.Now;
