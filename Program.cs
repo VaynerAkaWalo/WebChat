@@ -1,4 +1,6 @@
 using WebChat.Hubs;
+using WebChat.Services;
+using Microsoft.EntityFrameworkCore;
 using WebChat.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,9 +8,32 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
-builder.Services.AddSingleton<IMessageStorage, QueueBasedStorage>();
+builder.Services.AddDbContext<MessageContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MessageContext")));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddScoped<IMessageStorage, DatabaseBasedStorage>();
+
 
 var app = builder.Build();
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    app.UseHsts();
+}
+else
+{
+    app.UseDeveloperExceptionPage();
+    app.UseMigrationsEndPoint();
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<MessageContext>();
+    context.Database.EnsureCreated();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -31,3 +56,4 @@ app.MapControllerRoute(
 app.MapHub<ChatHub>("/chatHub");
 
 app.Run();
+
